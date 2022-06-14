@@ -1,3 +1,5 @@
+from unicode_table import unicode_table
+
 def fatores_primos(numero):
     fatores = []
     fator_primo_inicial = 2
@@ -19,6 +21,26 @@ def fatores_primos_multiplicacao(numero):
 
     return f'{numero} = {" * ".join(fatores_str)}'
 
+def fatores_primos_exponenciacao(numero):
+    aparicoes = {}
+    fatores = fatores_primos(numero)
+    aparicoes_exponencial = []
+
+    for n in fatores:
+        if not aparicoes.get(n):
+            aparicoes[n] = 1
+        else:
+            aparicoes[n] += 1
+
+    for k, v in aparicoes.items():
+        if v > 1:
+            aparicoes_exponencial.append(f'{k}{obter_numero_unicode(v)}')
+        else:
+            aparicoes_exponencial.append(f'{k}')
+
+    return f'{numero} = {" * ".join(aparicoes_exponencial)}'
+
+
 def proximo_numero_primo(numero_primo_atual, numero_atual):
     numero_primo_atual += 1
 
@@ -38,3 +60,13 @@ def e_primo(numero):
             numero_divisores += 1
 
     return numero_divisores <= 2
+
+def obter_numero_unicode(numero):
+    numero_str = str(numero)
+
+    return_str = ''
+
+    for n in numero_str:
+        return_str += unicode_table[n]
+
+    return return_str

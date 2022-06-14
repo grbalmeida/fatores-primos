@@ -1,4 +1,5 @@
-from fatores_primos import fatores_primos, fatores_primos_multiplicacao
+from re import A
+from fatores_primos import fatores_primos, fatores_primos_multiplicacao, fatores_primos_exponenciacao
 
 def test_deve_retornar_os_fatores_primos_de_10():
     assert fatores_primos(10) == [2, 5]
@@ -91,19 +92,34 @@ def test_deve_retornar_os_fatores_primos_de_20():
 def test_deve_retornar_os_fatores_primos_de_84():
     assert fatores_primos(84) == [2, 2, 3, 7]
     assert fatores_primos_multiplicacao(84) == '84 = 2 * 2 * 3 * 7'
+    assert fatores_primos_exponenciacao(84) == '84 = 2² * 3 * 7'
 
 def test_deve_retornar_os_fatores_primos_de_2205():
     assert fatores_primos(2205) == [3, 3, 5, 7, 7]
     assert fatores_primos_multiplicacao(2205) == '2205 = 3 * 3 * 5 * 7 * 7'
+    assert fatores_primos_exponenciacao(2205) == '2205 = 3² * 5 * 7²'
 
 def test_deve_retornar_os_fatores_primos_de_13958():
     assert fatores_primos(13958) == [2, 7, 997]
     assert fatores_primos_multiplicacao(13958) == '13958 = 2 * 7 * 997'
+    assert fatores_primos_exponenciacao(13958) == '13958 = 2 * 7 * 997'
 
 def test_deve_retornar_os_fatores_primos_de_139581():
     assert fatores_primos(139581) == [3, 3, 13, 1193]
     assert fatores_primos_multiplicacao(139581) == '139581 = 3 * 3 * 13 * 1193'
+    assert fatores_primos_exponenciacao(139581) == '139581 = 3² * 13 * 1193'
 
 def test_deve_retornar_os_fatores_primos_de_20000():
     assert fatores_primos(20000) == [2, 2, 2, 2, 2, 5, 5, 5, 5]
     assert fatores_primos_multiplicacao(20000) == '20000 = 2 * 2 * 2 * 2 * 2 * 5 * 5 * 5 * 5'
+    assert fatores_primos_exponenciacao(20000) == '20000 = 2⁵ * 5⁴'
+
+def test_deve_retornar_os_fatores_primos_de_1024():
+    assert fatores_primos(1024) == [2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+    assert fatores_primos_multiplicacao(1024) == '1024 = 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2'
+    assert fatores_primos_exponenciacao(1024) == '1024 = 2¹⁰'
+
+def test_deve_retornar_os_fatores_primos_de_10450():
+    assert fatores_primos(10450) == [2, 5, 5, 11, 19]
+    assert fatores_primos_multiplicacao(10450) == '10450 = 2 * 5 * 5 * 11 * 19'
+    assert fatores_primos_exponenciacao(10450) == '10450 = 2 * 5² * 11 * 19'
