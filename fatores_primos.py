@@ -13,6 +13,12 @@ def fatores_primos(numero):
 
     return fatores
 
+def fatores_primos_multiplicacao(numero):
+    fatores = fatores_primos(numero)
+    fatores_str = [str(x) for x in fatores]
+
+    return f'{numero} = {" * ".join(fatores_str)}'
+
 def proximo_numero_primo(numero_primo_atual, numero_atual):
     numero_primo_atual += 1
 
